@@ -1,0 +1,47 @@
+<div *ngIf="cartLines && cartLines.length && !orderValidated" class="cart">
+  <ul class="cart-list">
+    <li class="cart-item" *ngFor="let item of cartLines">
+      <img [src]="'../../assets/images/' + item.product.image" class="cart-item__img" alt="" />
+      <div class="w-100">
+        <div class="cart-item__line">
+          <p class="c-secondary">
+            {{ item.product.name }}
+          </p>
+          <button
+            class="cart-item__btn"
+            role="button"
+            [attr.aria-label]="'Supprimer ' + item.product.name + ' du panier'"
+            (click)="removeProduct(item.id)"
+          >
+            <i class="pi pi-trash"></i>
+          </button>
+        </div>
+        <div class="cart-item__line">
+          <select
+            name="stock"
+            [(ngModel)]="item.qty"
+            (ngModelChange)="updateQty(item.id, $event)"
+          >
+            <option
+              *ngFor="let number of counter(item.product.stock); let i = index"
+              [attr.value]="i + 1"
+              [selected]="i + 1 === item.qty"
+            >
+              {{ i + 1 }}
+            </option>
+          </select>
+          <span>{{ item.qty * item.product.price }}€</span>
+        </div>
+      </div>
+    </li>
+  </ul>
+  <button type="button" class="btn btn-full mt-2" (click)="validateOrder()">
+    Commander - {{ getOrderSum() }}€
+  </button>
+</div>
+
+<p *ngIf="orderValidated" class="c-secondary">
+  Votre commande est validée, merci et à bientôt !
+</p>
+
+<p *ngIf="cartLines && !cartLines.length" class="c-primary">Votre panier est vide !</p>

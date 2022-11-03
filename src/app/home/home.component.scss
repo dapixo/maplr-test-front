@@ -1,0 +1,81 @@
+.hero {
+  background-color: #fcefe7;
+  margin-bottom: 50px;
+  position: relative;
+
+  &__sep {
+    bottom: -50px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+
+    @media screen and (max-width: 600px) {
+      bottom: -10px;
+    }
+  }
+
+  &__container {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__text-container {
+    width: 70%;
+
+    @media screen and (min-width: 900px) {
+      width: 40%;
+    }
+  }
+
+  &__title {
+    font-size: 2.5rem;
+  }
+
+  &__img-box {
+    display: none;
+
+    @media screen and (min-width: 900px) {
+      display: block;
+      position: relative;
+      width: 50%;
+
+      &::before,
+      &::after {
+        background-size: 90%;
+        background-repeat: no-repeat;
+        content: '';
+        position: absolute;
+        z-index: 1;
+      }
+
+      @media screen and (min-width: 1400px) {
+        &::before {
+          background-image: url('../../assets/images/maple-leaf.png');
+          height: 200px;
+          top: 100px;
+          transform: rotate(70deg);
+          right: -100px;
+          width: 200px;
+        }
+      }
+
+
+      &::after {
+        background-image: url('../../assets/images/maple-leaf.png');
+        top: -80px;
+        height: 300px;
+        left: -100px;
+        width: 300px;
+      }
+    }
+  }
+
+  &__img {
+    border-radius: 8px;
+    box-shadow: 2px 4px 13px 0px rgba(0,0,0,0.3);
+    position: relative;
+    width: 100%;
+    z-index: 10;
+  }
+}

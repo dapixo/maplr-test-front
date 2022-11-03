@@ -1,0 +1,71 @@
+
+  :host {
+    ::ng-deep .p-dropdown {
+      width: 100%;
+    }
+  }
+
+.market-title {
+  font-size: 30px;
+  margin-bottom: 40px;
+}
+
+.products {
+  display: grid;
+  gap: 1.5rem;
+  grid-area: products;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  position: relative;
+
+  @media screen and (min-width: 600px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @media screen and (min-width: 1200px) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  &::before,
+  &::after {
+    background-size: 90%;
+    background-repeat: no-repeat;
+    content: '';
+    opacity: 0.3;
+    position: absolute;
+    height: 300px;
+    width: 300px;
+    z-index: 1;
+  }
+
+  &::before {
+    background-image: url('../../../assets/images/maple-leaf.png');
+    top: -100px;
+    transform: rotate(90deg);
+    right: 0;
+
+    @media screen and (min-width: 1400px) {
+      right: -100px;
+    }
+  }
+
+  &::after {
+    background-image: url('../../../assets/images/maple-leaf.png');
+    bottom: -100px;
+    left: -100px;
+  }
+}
+
+.filter {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  width: calc(33.33% - 1.5rem);
+
+  &__label {
+    margin-bottom: 10px;
+  }
+}
+
+.p-dropdown {
+  width: 100%;
+}

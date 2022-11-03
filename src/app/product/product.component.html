@@ -1,0 +1,27 @@
+<div class="product-page">
+  <div class="container">
+    <nav class="breadcrumb">
+      <a class="breadcrumb__item" routerLink="/">Accueil</a>
+      <i class="pi pi-angle-right"></i>
+      <p class="breadcrumb__item breadcrumb__item--curent">{{ product.name }}</p>
+    </nav>
+    <section class="product-page__section">
+      <h2 class="product-page__title">{{ product.name }}</h2>
+      <div class="product-page__wrapper">
+        <img [src]="'../../assets/images/' + product.image" alt="" />
+        <div class="product-page__desc-container">
+          <p class="product-page__desc">{{ product.description }}</p>
+          <p class="product-page__price">{{ product.price }}€</p>
+          <button
+            class="btn btn-full"
+            role="button"
+            (click)="addProduct(product.id)"
+            [attr.aria-label]="'Ajouter ' + product.name + ' au panier'"
+          >
+            Ajouter
+          </button>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

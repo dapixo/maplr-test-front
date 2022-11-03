@@ -1,0 +1,33 @@
+<header role="banner" class="header">
+  <div class="header__img-container">
+    <a routerLink="/" title="Cabane à sucre Maplr (retour à l’accueil)">
+      <img
+        src="../../assets/images/maplr-logo.png"
+        class="header__img"
+        alt="Maplr"
+      />
+    </a>
+  </div>
+  <nav class="navigation" role="navigation" aria-label="Menu principal">
+    <ul class="navigation__list">
+      <li class="navigation__list-item">
+        <a class="navigation__link" href="#">Notre cabane à sucre</a>
+      </li>
+      <li class="navigation__list-item">
+        <a class="navigation__link" href="#">Nos sirops d'érable</a>
+      </li>
+      <li class="navigation__list-item">
+        <a class="navigation__link" href="#">Contact</a>
+      </li>
+    </ul>
+  </nav>
+  <button
+    type="button"
+    class="cart-btn"
+    aria-haspopup="true"
+    aria-label="Afficher votre panier"
+    (click)="displayCart()"
+  >
+    <i class="pi pi-shopping-cart"></i>
+  </button>
+</header>

@@ -1,0 +1,72 @@
+.breadcrumb {
+  align-items: center;
+  display: flex;
+
+  &__item {
+    color: var(--color-text);
+    font-size: 0.8rem;
+    font-weight: 300;
+    text-decoration: none;
+
+    &--curent {
+      font-weight: 500;
+    }
+  }
+}
+
+.product-page {
+  overflow: hidden;
+  position: relative;
+
+  &::before {
+    background-image: url('../../assets/images/maple-leaf.png');
+    background-repeat: no-repeat;
+    background-size: 90%;
+    content: '';
+    height: 500px;
+    opacity: 0.2;
+    position: absolute;
+    top: 50px;
+    transform: rotate(70deg);
+    right: -100px;
+    width: 500px;
+    z-index: 1;
+  }
+
+  &__section {
+    display: flex;
+    flex-direction: column;
+    margin-top: 3rem;
+  }
+
+  &__title {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
+
+  &__wrapper {
+    display: flex;
+
+    @media screen and (max-width: 900px) {
+      flex-direction: column;
+    }
+  }
+
+  &__desc-container {
+    @media screen and (min-width: 900px) {
+      width: 40%;
+    }
+
+  }
+
+  &__price {
+    color: var(--primary);
+    font-size: 1.5rem;
+    font-style: italic;
+    margin: 3rem 0;
+  }
+
+  &__desc {
+    line-height: 1.5;
+  }
+}

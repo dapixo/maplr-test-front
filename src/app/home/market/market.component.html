@@ -1,0 +1,26 @@
+<section class="container">
+  <h2 class="market-title">
+    Découvrez nos <span class="c-primary">sirop d'érable</span> vedettes
+  </h2>
+  <div class="filter">
+    <p class="filter__label" id="dropdownLabel">
+      Filtrez les sirops d'érables :
+    </p>
+    <p-dropdown
+      [options]="dropdownOptions"
+      placeholder="Couleur"
+      [(ngModel)]="selectedType"
+      [showClear]="true"
+      (onChange)="onFilter(selectedType)"
+      (onClear)="onClearFilter()"
+      optionLabel="type"
+      ariaLabelledBy="dropdownLabel"
+    ></p-dropdown>
+  </div>
+  <div class="products">
+    <app-market-item
+      *ngFor="let item of catalogueItems"
+      [product]="item"
+    ></app-market-item>
+  </div>
+</section>

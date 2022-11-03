@@ -1,0 +1,30 @@
+.cart-item {
+  border-bottom: 1px solid #bdb1b1;
+  display: flex;
+  padding: 1rem 0;
+  width: 100%;
+
+  &__img {
+    height: 100%;
+    max-width: 3rem;
+  }
+
+  &__line {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+
+    &:not(:last-child) {
+      padding-bottom: 0.5rem;
+    }
+  }
+
+  &__btn {
+    color: var(--primary);
+
+    &:hover,
+    &:focus {
+      color: var(--secondary);
+    }
+  }
+}
