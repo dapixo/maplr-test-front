@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CatalogueItem } from 'src/app/models/catalogueItem';
 import { CartService } from 'src/app/services/cart.service';
 
@@ -7,12 +7,10 @@ import { CartService } from 'src/app/services/cart.service';
   templateUrl: './market-item.component.html',
   styleUrls: ['./market-item.component.scss'],
 })
-export class MarketItemComponent implements OnInit {
+export class MarketItemComponent {
   @Input() product: CatalogueItem;
 
   constructor(private cartService: CartService) {}
-
-  ngOnInit(): void {}
 
   addProduct(productId: string) {
     this.cartService.createOrUpdate(productId).subscribe(() => {

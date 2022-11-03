@@ -9,9 +9,12 @@ import { OrderService } from '../services/order.service';
   styleUrls: ['./cart.component.scss'],
 })
 export class CartComponent implements OnInit {
-  constructor(private cartService: CartService, private orderService: OrderService) {}
+  constructor(
+    private cartService: CartService,
+    private orderService: OrderService
+  ) {}
 
-  cartLines: CartLine[];
+  cartLines: CartLine[] = [];
   orderValidated = false;
 
   ngOnInit(): void {
@@ -19,12 +22,12 @@ export class CartComponent implements OnInit {
   }
 
   getCarLines() {
-    this.cartService.get().subscribe((result: CartLine[]) => {
+    this.cartService.getAll().subscribe((result: CartLine[]) => {
       this.cartLines = result;
     });
   }
 
-  removeProduct(id: string) {
+  removeCartLine(id: string) {
     this.cartService.delete(id).subscribe(() => {
       this.cartLines = this.cartLines.filter((val) => {
         return val.id !== id;
@@ -41,9 +44,11 @@ export class CartComponent implements OnInit {
   }
 
   getOrderSum() {
-    return this.cartLines.reduce((acc, obj) => {
+    const sum = this.cartLines.reduce((acc, obj: CartLine) => {
       return acc + obj.qty * obj.product.price;
     }, 0);
+
+    return sum;
   }
 
   validateOrder() {
@@ -56,6 +61,10 @@ export class CartComponent implements OnInit {
 
     this.orderService.post(products).subscribe(() => {
       this.orderValidated = true;
-    })
+    });
+  }
+
+  trackByFn(index: any) {
+    return index;
   }
 }

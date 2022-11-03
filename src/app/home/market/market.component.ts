@@ -22,7 +22,7 @@ export class MarketComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.getAllProducts();
+    this.getProducts();
     this.route.queryParams
       .pipe(takeUntil(this.destroy$))
       .subscribe((queryParams) => {
@@ -33,9 +33,9 @@ export class MarketComponent implements OnInit {
       });
   }
 
-  getAllProducts() {
+  getProducts() {
     return this.productService
-      .get()
+      .getAll()
       .subscribe((catalogueItems: CatalogueItem[]) => {
         this.catalogueItems = catalogueItems;
       });
@@ -53,7 +53,7 @@ export class MarketComponent implements OnInit {
   }
 
   onClearFilter() {
-    this.getAllProducts();
+    this.getProducts();
     this.router.navigate(['/']);
   }
 

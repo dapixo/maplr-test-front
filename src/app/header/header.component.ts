@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { DialogService } from 'primeng/dynamicdialog';
-import { CartComponent } from '../cart/cart.component';
+import { Component } from '@angular/core';
 import { CartService } from '../services/cart.service';
 
 @Component({
@@ -8,10 +6,8 @@ import { CartService } from '../services/cart.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
   constructor(private cartService: CartService) {}
-
-  ngOnInit(): void {}
 
   displayCart() {
     this.cartService.openCartDialog();

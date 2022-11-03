@@ -11,7 +11,7 @@ export class ProductService {
 
   constructor(private http: HttpClient) { }
 
-  get(): Observable<CatalogueItem[]> {
+  getAll(): Observable<CatalogueItem[]> {
     return this.http.get<CatalogueItem[]>(`${environment.apiUrl}/product`)
   }
 

@@ -1,5 +1,9 @@
 <li class="product" *ngIf="product">
-  <img class="product__img" [src]="'../../assets/images/' + product.image" alt="" />
+  <img
+    class="product__img"
+    [src]="'../../assets/images/' + product.image"
+    alt=""
+  />
   <div class="product__text-container">
     <p class="product__title">{{ product.name }}</p>
     <p class="product__price">{{ product.price }}€</p>

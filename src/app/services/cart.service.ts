@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { CatalogueItem } from '../models/catalogueItem';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 import { CartLine } from '../models/cartLine';
@@ -17,7 +16,7 @@ export class CartService {
     return this.http.put<CartLine>(`${environment.apiUrl}/cart`, { productId });
   }
 
-  get(): Observable<CartLine[]> {
+  getAll(): Observable<CartLine[]> {
     return this.http.get<CartLine[]>(`${environment.apiUrl}/cart`);
   }
 
